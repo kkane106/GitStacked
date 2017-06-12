@@ -19,12 +19,12 @@
 	<h2>Welcome, ${user.getFName()}!</h2>
 	</c:if>
 	
-<!-- 	<div>
+<div>
 		<a href="pastWorkouts.do">Previous workouts</a>
 	</div>
 	<div>
 		<a href="">Planned workouts</a>
-	</div> -->
+	</div>
 
 	<h3>Your List Of Workouts:</h3>
 	
