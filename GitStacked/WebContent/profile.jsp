@@ -19,13 +19,10 @@
 	<h2>Welcome, ${user.getFName()}!</h2>
 	</c:if>
 	
-<div>
-		<a href="pastWorkouts.do">Previous workouts</a>
-	</div>
-	<div>
-		<a href="">Planned workouts</a>
-	</div>
 
+	<form action="pastWorkouts.do" method="GET">
+			<input type="submit" value="View Past Workouts"> 
+		</form> 
 	<h3>Your List Of Workouts:</h3>
 	
 	<label id="searchbar">Search Workouts: <input id="search" type="text"></label>
