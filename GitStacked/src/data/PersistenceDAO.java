@@ -14,24 +14,44 @@ import entities.WorkoutExercise;
 
 public interface PersistenceDAO {
 
+	/*
+		put these in UserDAO
+	*/
 	User createNewUser(User user);
 	User persistUser(User user);
+	int getUserIdByUsername(String username);
+	List<User> getAllUsers();
+	
+	/*
+		put these in AuthDAO
+	*/
+	User login(User user);
+	
+	/*
+		put these in ExerciseDAO
+	*/
 	Exercise getExerciseByName(String exerciseName);
 	List<Exercise> getListOfExercises();
-	int getUserIdByUsername(String username);
-	User login(User user);
 	void createExercise(Exercise exercise);
 	void deleteExercise(Exercise exercise, String choice);
 	int getExerciseIdByName(String name);
-	List<User> getAllUsers();
 	Exercise getExerciseById(User user, int id);
+	List<Exercise> getAllExercises();
+	
+	/*
+		put these in WorkoutDAO
+	*/
 	Workout persistWorkout(Workout workout);
 	User persistWorkouts(Workout w);
 	List<Workout> getWorkoutsFromUser(User user);
 	void removeWorkout(int id);
-	List<Exercise> getAllExercises();
 	int getCaloriesByWorkout(Workout workout);
 	void removeWorkoutExercise(int id);
+	
+	/*
+		This could go a few places, I would recommend making it it's own bean and
+		autowiring it where needed
+	*/
 	int compareDate(LocalDate otherDate);
 
 		

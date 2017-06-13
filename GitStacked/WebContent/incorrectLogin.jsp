@@ -5,23 +5,26 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Login Error</title>
-</head>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<jsp:include page="_styles.jsp"/>
+		<title>Login Error</title>
+	</head>
 <body>
-<jsp:include page="navbar.jsp"/> 
+	<jsp:include page="_navbar.jsp"/> 
+	
+	<!-- why is this not in a div or header? -->
 	Click below to enter in correct username/password
 	
 	
 	<form:form action = "login.do" method = "POST" modelAttribute="user">
-	<form:label path="username">Username:</form:label>
-	<form:input path="username" />
+		<form:label path="username">Username:</form:label>
+		<form:input path="username" />
 
-	<form:label path="password">Password:</form:label>
-	<form:input path="password" />
+		<form:label path="password">Password:</form:label>
+		<form:input path="password" />
 
-	<input type="submit" value="Sign in">
+		<input type="submit" value="Sign in">
 	</form:form>
 </body>
 </html>

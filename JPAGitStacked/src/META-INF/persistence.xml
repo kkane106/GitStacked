@@ -7,10 +7,10 @@
     <provider>org.hibernate.jpa.HibernatePersistenceProvider
     </provider>
 
-    <class>User</class>
-    <class>Workout</class>
-    <class>Exercise</class>
-    <class>WorkoutExercise</class>
+    <class>entities.User</class>
+    <class>entities.Workout</class>
+    <class>entities.Exercise</class>
+    <class>entities.WorkoutExercise</class>
     
 
     <class></class>

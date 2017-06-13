@@ -8,14 +8,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-<table>
-<tr>
-<th></th>
-</tr>
-<tr>
-<td></td>
-</tr>
-</table>
-</body>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
 </html>

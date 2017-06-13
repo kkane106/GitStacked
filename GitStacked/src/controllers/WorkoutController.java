@@ -56,6 +56,9 @@ public class WorkoutController {
 		return new ArrayList<>();
 	}
 
+	/*
+		Put this in an AuthController.java
+	*/
 	// Forwards user to sign up page
 	@RequestMapping(path = "createUser.do", method = RequestMethod.GET)
 	public ModelAndView signupForm() {
@@ -64,6 +67,9 @@ public class WorkoutController {
 		return mv;
 	}
 
+	/*
+		Put this in an AuthController.java
+	*/
 	// User created and persisted to database
 	@RequestMapping(path = "createUser.do", method = RequestMethod.POST)
 	public ModelAndView createUser(@ModelAttribute("user") User user) {
@@ -74,6 +80,9 @@ public class WorkoutController {
 		return mv;
 	}
 
+	/*
+		Put this in an AuthController.java
+	*/
 	// User forwarded to login page
 	@RequestMapping(path = "login.do", method = RequestMethod.GET)
 	public ModelAndView loginForm(@ModelAttribute("user") User user) {
@@ -82,6 +91,9 @@ public class WorkoutController {
 		return mv;
 	}
 
+	/*
+		Put this in an AuthController.java
+	*/
 	// Handles login validation
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute("user") User user) {
@@ -104,6 +116,9 @@ public class WorkoutController {
 		return mv;
 	}
 
+	/*
+		Put this in an UserController.java
+	*/
 	// User updates account information and update persisted to database
 	@RequestMapping(path = "editUser.do", method = RequestMethod.POST)
 	public ModelAndView editWeight(@ModelAttribute("user") User user) {
@@ -134,6 +149,10 @@ public class WorkoutController {
 		return mv;
 	}
 
+	/*
+		Put this in an UserController.java
+			--> extract the logic and put it in UserDAOImpl.java
+	*/
 	// Route to handle UserType updates
 	@RequestMapping(path = "updateUserType.do", method = RequestMethod.POST)
 	public ModelAndView updateUserType(@ModelAttribute("user") User user, String username, String choice) {
@@ -152,6 +171,9 @@ public class WorkoutController {
 		return mv;
 	}
 
+	/*
+		Do all of this logic (e.g. creating the workout) in a WorkoutDAOImpl.java
+	*/
 	// Route to create workout from workoutBuilder jsp
 	// Checks for changes to existing workout or build a new workout
 	@RequestMapping(path = "createWorkout.do", method = RequestMethod.POST)
@@ -191,6 +213,9 @@ public class WorkoutController {
 		return "redirect:workoutRedirect.do";
 	}
 
+	/*
+		Do all of this logic in a WorkoutDAOImpl.java
+	*/
 	// User adds WorkoutExercise and redirected to workoutBuilder jsp
 	@RequestMapping(path = "createWorkoutList.do", method = RequestMethod.POST)
 	public String addExerciseToWorkoutList(@RequestParam("exerciseId") Integer id, @ModelAttribute("user") User user,
@@ -208,23 +233,12 @@ public class WorkoutController {
 		mv.addObject(userWorkoutExercises);
 
 		return "redirect:redirect.do";
-
-		// System.out.println("Names: " + workoutExerciseCO.getName());
-		// System.out.println("Duration: " + workoutExerciseCO.getDuration());
-		// System.out.println("Reps: " + workoutExerciseCO.getReps());
-		// System.out.println("ExerciseId: " +
-		// workoutExerciseCO.getExerciseId());
-		// String[] names = workoutExerciseCO.getName().get(0).split(",");
-		// String[] duration =
-		// workoutExerciseCO.getDuration().get(0).split(",");
-		// for(int i=0; i<names.length;i++){
-		// WorkoutExercise w = new WorkoutExercise();
-		// w.setDuration(duration[i]);
-		// w.setReps(reps[i]);
-		// dao.persist(w);
-		// }
 	}
 
+	/*
+		Do all of this logic (e.g. creating the workout) in a WorkoutDAOImpl.java
+		--> also, name this route better
+	*/
 	@RequestMapping(path = "createWorkout2.do", method = RequestMethod.POST)
 	public ModelAndView createWorkout(@RequestParam(value = "workoutName", required = false) String workoutName,
 			@RequestParam("exerciseId") Integer id,
@@ -273,6 +287,9 @@ public class WorkoutController {
 
 	}
 
+	/*
+		Do all of this logic (e.g. creating the workout) in a WorkoutDAOImpl.java
+	*/
 	// Workout is persisted to database and User forwarded to profile page
 	@RequestMapping(path = "completeWorkout.do", method = RequestMethod.POST)
 	public ModelAndView publishWorkout(@ModelAttribute("user") User user,
@@ -296,6 +313,7 @@ public class WorkoutController {
 		mv.setViewName("workoutBuilder.jsp");
 		return mv;
 	}
+
 	@RequestMapping(path = "workoutRedirect.do")
 	public ModelAndView workoutRedirect(@ModelAttribute("user") User user,
 			@ModelAttribute("userWorkoutExercises") List<WorkoutExercise> userWorkoutExercises) {
@@ -311,6 +329,9 @@ public class WorkoutController {
 		return mv;
 	}
 
+	/*
+		Put this in AuthController.java
+	*/
 	@RequestMapping(path = "logout.do")
 	public ModelAndView logoutUser(@ModelAttribute("user") User user) {
 		ModelAndView mv = new ModelAndView();
@@ -321,6 +342,9 @@ public class WorkoutController {
 		return mv;
 	}
 
+	/*
+		Put this in ExerciseController.java
+	*/
 	@RequestMapping(path = "createExercise.do", method = RequestMethod.POST)
 	public ModelAndView createExercise(Exercise exercise) {
 		dao.createExercise(exercise);
@@ -342,6 +366,9 @@ public class WorkoutController {
 		return mv;
 	}
 
+	/*
+		Put this in ExerciseController.java
+	*/
 	@RequestMapping(path = "removeWorkoutExercise.do", method = RequestMethod.POST)
 	public ModelAndView removeWorkoutExercise(@ModelAttribute("user") User user, Integer id) {
 		dao.removeWorkoutExercise(id);
@@ -352,6 +379,9 @@ public class WorkoutController {
 		return mv;
 	}
 
+	/*
+		Put this in ExerciseController.java
+	*/
 	@RequestMapping(path = "deleteExercise.do", method = RequestMethod.POST)
 	public ModelAndView deleteExercise(@ModelAttribute("user") User user, Exercise name, String choice) {
 		dao.deleteExercise(name, choice);

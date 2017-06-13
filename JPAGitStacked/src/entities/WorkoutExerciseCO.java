@@ -46,7 +46,4 @@ public class WorkoutExerciseCO {
 		this.exerciseId = exerciseId;
 	}
 
-	
-	
-
 }
